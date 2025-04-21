@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-50ut_t^*(!rv-1ctv$g!ho19i#x==!vs%n#ux2ur^(+g5)*=75
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -86,10 +86,10 @@ TEMPLATES = [
 
 AUTH_USER_MODEL = 'auth.User'
 
-WSGI_APPLICATION = "location_project.wsgi.application"
+# WSGI_APPLICATION = "location_project.wsgi.application"
 ASGI_APPLICATION = "location_project.asgi.application"
 
-CHANNEL_LAYER = {
+CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
@@ -164,3 +164,6 @@ LEAFLET_CONFIG = {
     'ATTRIBUTION_PREFIX': 'Location Tracker',
     'RESET_VIEW': False,
 }
+
+
+CORS_ALLOW_ALL_ORIGINS = True
