@@ -1,7 +1,7 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from django.contrib.auth.models import User
-from django.contrib.gis.geos import Point  # ✅ Required for spatial data
+from django.contrib.gis.geos import Point  
 from location_tracker_app.models import UserLocation
 from location_tracker_app.serializers import UserLocationSerializer
 

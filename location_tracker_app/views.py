@@ -35,23 +35,23 @@ class UserLocationUpdateView(APIView):
 
             point = Point(longitude, latitude)
 
-            # Update or create the user location
+            
             user_location, created = UserLocation.objects.update_or_create(
                 user=user,
                 is_active=True,
                 defaults={'point': point}
             )
 
-            # Serialize the location data
+            
             serializer = UserLocationSerializer(user_location)
 
             # Broadcast the updated location to WebSocket
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
-                "location_updates",  # The name of the group
+                "location_updates",  
                 {
                     "type": "location_update",
-                    "message": serializer.data  # Send the serialized data to the WebSocket group
+                    "message": serializer.data  
                 }
             )
 
